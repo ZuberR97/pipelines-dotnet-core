@@ -6,9 +6,17 @@
 
 trigger:
 - master
-- ZuberR97.pipelines-dotnet-core_(1)
+
 pr:
 - master
+
+resources:
+  pipelines:
+  - pipeline: ZuberR97pipelinesdotnetcore1
+    source: ZuberR97.pipelines-dotnet-core (1)
+    trigger: 
+      branches:
+      - master
 
 strategy:
   matrix:
