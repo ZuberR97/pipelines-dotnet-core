@@ -6,6 +6,7 @@
 
 trigger:
 - master
+- ZuberR97.pipelines-dotnet-core_(1)
 pr:
 - master
 
