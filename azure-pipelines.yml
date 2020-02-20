@@ -19,7 +19,7 @@ resources:
       - master
 
 pool:
-  vmImage: $(imageName)
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
