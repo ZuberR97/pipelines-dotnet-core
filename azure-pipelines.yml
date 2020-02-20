@@ -27,9 +27,29 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: <"Replace this with the name of your serviceconnection">
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo 'Install Azure DevOps Extension on the agent'
+      az extension add --name azure-devops
+ 
+      echo 'Verify Extension installation'
+      az extension list
+ 
+      echo 'Configure project defaults'
+      az devops configure --defaults organization='$(System.TeamFoundationCollectionUri)' project='$(System.TeamProject)'
+      
+      echo 'List configuration - Azure DevOps Extension'
+      az devops configure --list
+      
+      echo 'Installation completed'
+  displayName: 'Azure DevOps Extension installation'
 
 - task: pipelineextensiontest@0
   inputs:
     samplestring: 'Human'
     timeout: '600'
-    listofchildpipelines: 'child1, 123, child2, 456, child3, 789'
+    listofchildpipelines: 'child1 123, child2 456, child3 789'
