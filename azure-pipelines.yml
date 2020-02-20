@@ -31,3 +31,5 @@ steps:
 - task: pipelineextensiontest@0
   inputs:
     samplestring: 'Human'
+    timeout: '600'
+    listofchildpipelines: 'child1, 123, child2, 456, child3, 789'
