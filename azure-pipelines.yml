@@ -52,12 +52,5 @@ steps:
     script: |
       # Write your commands here
       
-      echo '$(listofchildpipelines[0][0])'
-      echo '$(listofchildpipelines[0][1])'
-
-# jobs:
-# - job: RunChild
-
-#   steps: 
-#     scripts: echo 
-
+      echo $(listofchildpipelines[0][0])
+      echo $(listofchildpipelines[0][1])
