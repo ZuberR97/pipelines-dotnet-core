@@ -34,4 +34,5 @@ steps:
       az devops configure --list
       
       echo 'Installation completed'
+      echo 'Timeout variable is $(timeoutPoint)'
   displayName: 'Azure DevOps Extension installation'
