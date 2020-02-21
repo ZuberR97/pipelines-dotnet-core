@@ -45,3 +45,19 @@ steps:
     samplestring: 'Human'
     timeout: '600'
     listofchildpipelines: 'child1 123, child2 456, child3 789'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo '$(listofchildpipelines[0][0])'
+      echo '$(listofchildpipelines[0][1])'
+
+# jobs:
+# - job: RunChild
+
+#   steps: 
+#     scripts: echo 
+
