@@ -62,7 +62,8 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlinescript: |
-      az pipelines run --name Child1
+      export AZURE_DEVOPS_EXT_PAT=$(System.AccessToken)
+      az pipelines run --name Child1 --variables "timeoutPoint=$(timeout)"
                        
                       #  [--detect {true}]
                       #  [--name Child1]
