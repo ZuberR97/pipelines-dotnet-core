@@ -51,6 +51,11 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      
-      echo $(listofchildpipelines[0][0])
-      echo $(listofchildpipelines[0][1])
+      az pipelines run [--branch master]
+                       [--commit-id 46adcea]
+                       [--detect {true}]
+                       [--name Child1]
+                       [--open]
+                       [--org https://dev.azure.com/v-ryzubeOrg/]
+                       [--project Demo]
+                       [--variables]
