@@ -50,12 +50,31 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      # Write your commands here
-      az pipelines run [--branch master]
-                       [--commit-id 46adcea]
-                       [--detect {true}]
-                       [--name Child1]
-                       [--open]
-                       [--org https://dev.azure.com/v-ryzubeOrg/]
-                       [--project Demo]
-                       [--variables]
+      # The below may work with an extension
+      # az pipelines run [--branch master]
+      #                  [--commit-id 46adcea]
+      #                  [--detect {true}]
+      #                  [--name Child1]
+      #                  [--open]
+      #                  [--org https://dev.azure.com/v-ryzubeOrg/]
+      #                  [--project Demo]
+      #                  [--variables]
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'AzureConnection'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az --version'
+
+# resources:
+#   pipelines:
+#   - pipeline: Child1
+
+#     source: Child1-CI 
+#     trigger: 
+#       branches:
+#         include: 
+#         - master
+#       tasks: 
+#       - pipelineextensiontest@0
