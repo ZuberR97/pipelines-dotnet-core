@@ -38,6 +38,16 @@ steps:
       az devops configure --list
       
       echo 'Installation completed'
+
+      echo 'Try to run Child pipeline'
+      az pipelines run [--branch master]
+                       [--commit-id 46adcea]
+                       [--detect {true}]
+                       [--name Child1]
+                       [--open]
+                       [--org https://dev.azure.com/v-ryzubeOrg/]
+                       [--project Demo]
+                       [--variables]
   displayName: 'Azure DevOps Extension installation'
 
 - task: pipelineextensiontest@0
@@ -46,10 +56,10 @@ steps:
     timeout: '600'
     listofchildpipelines: 'child1 123, child2 456, child3 789'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
+# - task: Bash@3
+#   inputs:
+#     targetType: 'inline'
+#     script: |
       # The below may work with an extension
       # az pipelines run [--branch master]
       #                  [--commit-id 46adcea]
@@ -59,13 +69,6 @@ steps:
       #                  [--org https://dev.azure.com/v-ryzubeOrg/]
       #                  [--project Demo]
       #                  [--variables]
-
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'AzureConnection'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az --version'
 
 # resources:
 #   pipelines:
