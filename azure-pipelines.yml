@@ -62,6 +62,7 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlinescript: |
+      az devops login 
       az pipelines run --name Child1
                        
                       #  [--detect {true}]
