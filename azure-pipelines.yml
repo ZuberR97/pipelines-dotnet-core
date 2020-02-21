@@ -10,14 +10,6 @@ trigger:
 pr:
 - master
 
-resources:
-  pipelines:
-  - pipeline: ZuberR97pipelinesdotnetcore1
-    source: ZuberR97.pipelines-dotnet-core (1)
-    trigger: 
-      branches:
-      - master
-
 pool:
   vmImage: 'ubuntu-latest'
 
