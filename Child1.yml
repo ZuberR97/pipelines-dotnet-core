@@ -34,18 +34,3 @@ steps:
 #       echo 'Timeout variable is $(timeoutPoint)'
 #   displayName: 'Azure DevOps Extension installation'
 
-- task: UploadPipeline@0
-  inputs:
-    kubeflowPipelineTask: 'uploadNew'
-    pipelineFilePath: 'somepath/file.gz'
-    kubeflowEndpoint: 'someurl'
-    newPipelineName: 'pipeline'
-    description: 'this is a pipeline'
-
-- task: UploadPipeline@0
-  inputs:
-    kubeflowPipelineTask: 'uploadNewVersion'
-    pipelineFilePath: 'somepath/file.gz'
-    kubeflowEndpoint: 'someurl'
-    #missing name because api call doesn't work yet
-    versionName: 'newVersion'
