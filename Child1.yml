@@ -34,6 +34,13 @@ steps:
 #       echo 'Timeout variable is $(timeoutPoint)'
 #   displayName: 'Azure DevOps Extension installation'
 
+# - task: UploadKubeflowPipeline@0
+#   inputs:
+#     kubeflowEndpoint: 'http://52.250.43.5/'
+#     kubeflowPipelineTask: 'uploadNew'
+#     pipelineFilePath: '$(System.DefaultWorkingDirectory)/pipeline.py.tar.gz'
+#     newPipelineName: 'DevOps test pipeline'
+#     description: '
 - task: UploadKubeflowPipeline@0
   inputs:
     kubeflowEndpoint: 'http://52.250.43.5/'
@@ -41,3 +48,4 @@ steps:
     pipelineFilePath: '$(System.DefaultWorkingDirectory)/pipeline.py.tar.gz'
     newPipelineName: 'DevOps test pipeline'
     description: 'this pipeline is testing if the upload task works on azdo'
+
