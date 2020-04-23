@@ -45,7 +45,7 @@ steps:
   inputs:
     kubeflowEndpoint: 'http://52.250.43.5/'
     kubeflowPipelineTask: 'uploadNew'
-    pipelineFilePath: 'home/vsts/work/1/s/pipeline.py.tar.gz'
-    newPipelineName: 'DevOps test pipeline'
+    pipelineFilePath: '/home/vsts/work/1/s/pipeline.py.tar.gz'
+    newPipelineName: 'DevOps_test_pipeline'
     description: 'this pipeline is testing if the upload task works on azdo'
 
